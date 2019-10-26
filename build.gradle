@@ -1,9 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules
 
-plugins {
-  id "org.sonarqube" version "2.6"
-}
-
 buildscript {
 	repositories {
 		jcenter()
@@ -11,6 +7,9 @@ buildscript {
 	}
 	dependencies {
 		classpath 'com.android.tools.build:gradle:3.1.0'
+	}
+	plugins {
+  		id "org.sonarqube" version "2.6"
 	}
 }
 
