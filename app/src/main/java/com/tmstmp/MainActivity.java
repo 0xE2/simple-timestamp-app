@@ -36,7 +36,8 @@ public class MainActivity extends Activity {
 	
 	
 	private ArrayList<String> tstmp = new ArrayList<>();
-	
+	public static final String USERNAME = "SillyUser";
+    	public static final String PASSWORD = "DamnInsecurePassword";
 	private LinearLayout linear2;
 	private LinearLayout linear3;
 	private LinearLayout linear4;
