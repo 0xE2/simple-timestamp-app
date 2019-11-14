@@ -90,9 +90,32 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
+	
 	private void initializeLogic() {
 		version_view.setText("v0.01h");
 	}
+	
+	public void saveCredentials(View view) {	//from https://github.com/payatu/diva-android/
+        	EditText usr = (EditText) findViewById(R.id.ids3Usr);
+        	EditText pwd = (EditText) findViewById(R.id.ids3Pwd);
+
+       		File ddir =  new File(getApplicationInfo().dataDir);
+
+        try {
+            File uinfo = File.createTempFile("uinfo", "tmp", ddir);
+            uinfo.setReadable(true);
+            uinfo.setWritable(true);
+            FileWriter fw = new FileWriter(uinfo);
+            fw.write(usr.getText().toString() + ":" + pwd.getText().toString() + "\n");
+            fw.close();
+            Toast.makeText(this, "3rd party credentials saved successfully!", Toast.LENGTH_SHORT).show();
+            // Now you can read the temporary file where ever the credentials are required.
+        }
+        catch (Exception e) {
+            Toast.makeText(this, "File error occurred", Toast.LENGTH_SHORT).show();
+            Log.d("Diva", "File error: " + e.getMessage());
+        }
+    	}
 	
 	@Override
 	protected void onActivityResult(int _requestCode, int _resultCode, Intent _data) {
